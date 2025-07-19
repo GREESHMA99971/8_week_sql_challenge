@@ -45,5 +45,15 @@ The case study revolves around three key datasets:
   
   <img width="206" height="110" alt="image" src="https://github.com/user-attachments/assets/b16b1c0f-1973-4adc-859a-88e99e355577" />
 
+---
 
+## Case Study Questions and Solutions
 
+### 1. What is the total amount each customer spent at the restaurant?
+
+```sql
+SELECT S.customer_id, SUM(M.price) AS total_amnt
+FROM sales S
+JOIN menu M ON S.product_id = M.product_id
+GROUP BY S.customer_id
+ORDER BY customer_id;
